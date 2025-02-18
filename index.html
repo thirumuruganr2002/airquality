@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Air Quality Monitoring</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Resize the canvas (pie chart) */
+        canvas {
+            max-width: 100%;
+            height: 300px; /* Adjust as needed */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">Admin Panel</div>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="air-quality.html">Air Quality Data</a></li>
+                <li><a href="alerts.html">Manage Alerts</a></li>
+            </ul>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header" id="content-header">
+                <h2>Dashboard</h2>
+            </div>
+            <div class="content-body" id="content-body">
+                <h3>Welcome to the Air Quality Admin Panel</h3>
+                <p>Here you can manage user data, monitor air quality, and more.</p>
+
+                <!-- Pie Chart Section -->
+                <h3>Air Quality by Pollutant</h3>
+                <canvas id="pieChart"></canvas>
+
+                <!-- Bar Chart Section -->
+                <h3>Pollution Level Comparison</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for Pie Chart (Hard-coded pollutants)
+        var pieData = {
+            labels: ['PM2.5', 'CO2', 'Ozone', 'NO2'],
+            datasets: [{
+                data: [30, 20, 25, 25],  // Sample data representing percentage of each pollutant
+                backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#FF33A8'],
+                hoverBackgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#FF33A8']
+            }]
+        };
+
+        // Pie Chart Configurations
+        var pieChartOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    enabled: true
+                }
+            },
+            aspectRatio: 1, // 1:1 ratio to keep it a good square size
+        };
+
+        // Create Pie Chart
+        var pieChart = new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            data: pieData,
+            options: pieChartOptions
+        });
+
+        // Data for Bar Chart (Hard-coded locations: Chennai, Madurai, Delhi)
+        var barData = {
+            labels: ['Chennai', 'Madurai', 'Delhi'], // Hardcoded location names
+            datasets: [{
+                label: 'Pollution Level (μg/m³)',
+                data: [50, 80, 70],  // Sample pollution levels for Chennai, Madurai, and Delhi
+                backgroundColor: '#3498db',
+                borderColor: '#2980b9',
+                borderWidth: 1
+            }]
+        };
+
+        // Bar Chart Configurations
+        var barChartOptions = {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10
+                    }
+                }
+            }
+        };
+
+        // Create Bar Chart
+        var barChart = new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: barData,
+            options: barChartOptions
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

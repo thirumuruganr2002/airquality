@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Data - Air Quality Check AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Check Air Quality</h2>
+        <div class="search-box">
+            <input type="text" id="search-location" placeholder="Search by location...">
+            <button onclick="searchLocation()">Search</button>
+        </div>
+
+        <div class="pollution-details" id="pollution-details">
+            <h3>Pollution Details</h3>
+            <p id="location-output">Location: <span></span></p>
+            <p id="pm25-output">PM2.5: <span></span> µg/m³</p>
+            <p id="co2-output">CO2: <span></span> ppm</p>
+            <p id="temperature-output">Temperature: <span></span> °C</p>
+            <p id="humidity-output">Humidity: <span></span> %</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

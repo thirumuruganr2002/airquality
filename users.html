@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">Admin Panel</div>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="air-quality.html">Air Quality Data</a></li>
+                <li><a href="alerts.html">Manage Alerts</a></li>
+            </ul>
+            <button id="logoutBtn">Logout</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header">
+                <h2>Users</h2>
+            </div>
+            <div class="content-body">
+                <h3>Add New User</h3>
+                <form id="userForm">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="name" placeholder="Enter full name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="email" placeholder="Enter email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Location</label>
+                        <select id="location">
+                            <option value="Chennai">Chennai</option>
+                            <option value="Madurai">Madurai</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Notifications</label>
+                        <select id="notifications">
+                            <option value="Enabled">Enabled</option>
+                            <option value="Disabled">Disabled</option>
+                        </select>
+                    </div>
+                    <button type="submit">Add User</button>
+                </form>
+
+                <h3>Registered Users</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Email</th>
+                            <th>Location</th>
+                            <th>Notifications</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <tr>
+                            <td>1</td>
+                            <td>user1@example.com</td>
+                            <td>Chennai</td>
+                            <td>Enabled</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>user2@example.com</td>
+                            <td>Madurai</td>
+                            <td>Disabled</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>user3@example.com</td>
+                            <td>Delhi</td>
+                            <td>Enabled</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
